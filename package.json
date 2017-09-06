@@ -1,0 +1,22 @@
+{
+  "name": "chatterbox",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "start": "npm run gulp && concurrently \"npm run gulp-watch\" \"npm run serve\"",
+    "gulp": "gulp",
+    "gulp-watch": "gulp watch",
+    "serve": "nodemon ./index.js"
+  },
+  "dependencies": {
+    "express": "^4.15.4",
+    "hbs": "^4.0.1",
+    "morgan": "^1.8.2",
+    "socket.io": "^2.0.3"
+  },
+  "devDependencies": {
+    "concurrently": "^3.5.0",
+    "gulp": "^3.9.1",
+    "gulp-sass": "^3.1.0"
+  }
+}
