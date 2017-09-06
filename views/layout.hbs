@@ -1,10 +1,34 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{title}}</title>
     <link rel='stylesheet' href='/css/styles.css' />
   </head>
   <body>
     {{{body}}} 
+    <script src="/socket.io/socket.io.js"></script>
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        const socket = io();
+        const form = document.querySelector('form');  
+        form.addEventListener('submit', (e) => {
+          e.preventDefault(); 
+          this.message = form.msg.value;  
+          socket.emit('chat message', this.message);
+          addMsg(this.message, 'messages');
+          document.getElementById('form').reset();
+          return false;
+        });
+      });
+
+      function addMsg(msg, el) {
+        let newLi = document.createElement('li');
+        let newMsg = document.createTextNode(msg);
+        newLi.appendChild(newMsg);
+        let list = document.getElementById(el);
+        list.appendChild(newLi);
+      }
+    </script>
   </body>
 </html>

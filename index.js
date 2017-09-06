@@ -5,14 +5,24 @@ const io = require('socket.io')(server);
 const logger = require('morgan');
 
 app.set('view engine', 'hbs');
-app.use(logger('combined'))
+// app.use(logger('combined'));
 app.use(express.static(__dirname + '/public'));
 
 app.get('/', (req, res) => {
     res.render('index', {title:'sup handlebars'});
 });
 
-server.listen(8080, () => {
+io.on('connection', (socket) => {
+    socket.on(
+        'chat message',
+        (message) => {
+            console.log(message);
+            socket.emit(message);
+        }
+    );
+});
+
+server.listen(8080, (socket) => {
     console.log('listening on port 8080');
 });
 

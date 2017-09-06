@@ -8,8 +8,13 @@ gulp.task('styles', () => {
     .pipe(gulp.dest('./public/css'));
 });
 
+gulp.task('fonts', function() {
+  return gulp.src('node_modules/font-awesome/fonts/*')
+    .pipe(gulp.dest('public/fonts'));
+})
+
 gulp.task('watch', () => {
-    gulp.watch('./sass/**/*.scss', ['styles']);
+    gulp.watch('./sass/**/*.scss', ['styles', 'fonts']);
 });
 
-gulp.task('default', ['styles']);
+gulp.task('default', ['styles', 'fonts']);

@@ -1,2 +1,24 @@
-<h1>{{title}}</h1>
-<p>Welcome to {{title}}</p>
+<main class="site__main center-flex">
+    <div class="messenger__box">
+        <h3>Welcome to Chatterbox</h3>
+        <div class="messages__box ">
+            <ul id="messages"></ul>
+        </div>
+        <form id="form" class="form">
+            <textarea 
+                class="form__input"
+                id="message"
+                type="text"
+                name="msg"
+                placeholder="start messaging..."
+                required
+                cols="10"
+                rows="50"
+                wrap="hard">
+            </textarea>
+            <button type="submit" class="form__button">
+                <i class="fa fa-paper-plane" aria-hidden="true"></i>
+            </button>
+        </form>
+    </div>
+</main>

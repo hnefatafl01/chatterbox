@@ -1,0 +1,126 @@
+$fa-font-path:"../node_modules/font-awesome/fonts";
+@import "../node_modules/font-awesome/scss/font-awesome";
+
+$primary-color: #1483FF;
+$text-color: #333;
+$text-color-light: #FFF;
+$header-text-color: darken($text-color, 10%);
+
+@mixin centerFlex($type:'all') {
+    display: flex;
+    @if ($type == 'all') {
+        align-items: center;
+        justify-content: center;
+    } @else if ($type == 'v') {
+        align-items: center;
+    } @else if ($type == 'h') {
+        justify-content: center;
+    }
+}
+
+.center-flex {
+    @include centerFlex()
+}
+
+.center-flex-v {
+    @include centerFlex('v')
+}
+
+.center-flex-h {
+    @include centerFlex('h')
+}
+
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    overflow-y: scroll;
+    margin: 0;
+    padding: 0;
+    li {
+        list-style: none; 
+        color: $text-color-light;
+        font-weight: 300;
+    }
+}
+
+ul {
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    background-color: #EFEFEF;
+    font-size: 14px;
+    line-height: 1.5;
+    color: $text-color;
+    font-family: 'Helvetica Nueue', Arial, Helvetica, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+h1,h2,h3,h4,h5,h6 {
+    color: $header-text-color;
+}
+
+.site-main {
+    width: 1200px;
+    margin: 0 auto;
+    margin: 50px auto;
+}
+
+.messenger__box {
+    background: #222;
+    width: 400px;
+    height: 600px;
+    padding: 10px;
+    z-index: 1;
+    display: flex;
+    flex-flow: row wrap;
+    align-content: space-between;
+    h3 {
+        height: 10%;
+        width: 100%;
+        color: $primary-color;
+        flex-grow: 1;
+        margin-bottom: 0;
+        text-align: center;
+    }
+    .messages__box {
+        width: 100%;
+        height: 80%;
+        z-index: 1000;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        overflow-y: scroll;
+        ul {
+            max-height: 470px;
+        }
+        
+    }
+    .form {
+        width: 100%;
+        height: auto;
+        margin: 0;
+    }
+}
+
+.form__input {
+    width: 80%;
+    height: 40px;
+    margin: 0;
+    border: 1px solid $primary-color;
+    font-family: 'Helvetica Nueue', Arial, Helvetica, sans-serif;
+    font-size: 14;
+}
+
+.form__button {
+    width: 100px;
+    height: 40px;
+    margin: 0;
+    background: $primary-color;
+    border: 1px solid #EFEFEF $primary-color;
+}
