@@ -2328,6 +2328,25 @@
   overflow: visible;
   clip: auto; }
 
+.rounded-all {
+  border-radius: 4px; }
+
+.rounded-top {
+  border-top-right-radius: 4px;
+  border-top-left-radius: 4px; }
+
+.rounded-bottom {
+  border-bottom-right-radius: 4px;
+  border-bottom-left-radius: 4px; }
+
+.rounded-left {
+  border-top-left-radius: 4px;
+  border-bottom-left-radius: 4px; }
+
+.rounded-right {
+  border-bottom-right-radius: 4px;
+  border-top-right-radius: 4px; }
+
 .center-flex {
   display: flex;
   align-items: center;
@@ -2375,6 +2394,7 @@ h1, h2, h3, h4, h5, h6 {
   margin: 50px auto; }
 
 .messenger__box {
+  margin-top: 35px;
   background: #222;
   width: 400px;
   height: 600px;
@@ -2391,6 +2411,7 @@ h1, h2, h3, h4, h5, h6 {
     margin-bottom: 0;
     text-align: center; }
   .messenger__box .messages__box {
+    margin-top: 0;
     width: 100%;
     height: 80%;
     z-index: 1000;
@@ -2400,13 +2421,24 @@ h1, h2, h3, h4, h5, h6 {
     overflow-y: scroll; }
     .messenger__box .messages__box ul {
       max-height: 470px; }
-  .messenger__box .form {
-    width: 100%;
-    height: auto;
-    margin: 0; }
+    .messenger__box .messages__box li {
+      background: #FFF;
+      padding: 8px;
+      margin: 8px;
+      border-top-right-radius: 4px;
+      border-bottom-right-radius: 4px;
+      border-bottom-left-radius: 0;
+      border-top-left-radius: 4px;
+      color: #333; }
+
+.form {
+  width: 100%;
+  height: auto;
+  margin: 0; }
 
 .form__input {
-  width: 80%;
+  padding: 0 8px;
+  width: 82%;
   height: 40px;
   margin: 0;
   border: 1px solid #1483FF;
@@ -2414,8 +2446,10 @@ h1, h2, h3, h4, h5, h6 {
   font-size: 14; }
 
 .form__button {
-  width: 100px;
+  width: 18%;
   height: 40px;
-  margin: 0;
-  background: #1483FF;
-  border: 1px solid #EFEFEF #1483FF; }
+  margin-left: -8px;
+  background: #FFF;
+  border: 1px solid #1483FF; }
+  .form__button:hover {
+    background: #7ab9ff; }

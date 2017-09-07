@@ -13,16 +13,12 @@ app.get('/', (req, res) => {
 });
 
 io.on('connection', (socket) => {
-    socket.on(
-        'chat message',
-        (message) => {
-            console.log(message);
-            socket.emit(message);
-        }
-    );
+    socket.on('chat message', (message) => {
+        io.emit('chat message', message);
+    });
 });
 
-server.listen(8080, (socket) => {
+server.listen(8080, () => {
     console.log('listening on port 8080');
 });
 

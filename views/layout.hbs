@@ -13,12 +13,14 @@
         const socket = io();
         const form = document.querySelector('form');  
         form.addEventListener('submit', (e) => {
-          e.preventDefault(); 
-          this.message = form.msg.value;  
-          socket.emit('chat message', this.message);
-          addMsg(this.message, 'messages');
-          document.getElementById('form').reset();
-          return false;
+            e.preventDefault(); 
+            let message = form.msg.value;  
+            socket.emit('chat message', message);
+            document.getElementById('form').reset();
+            return false;
+        });
+        socket.on('chat message', (msg) => {
+            addMsg(msg, 'messages');
         });
       });
 

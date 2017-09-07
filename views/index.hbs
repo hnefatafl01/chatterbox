@@ -1,22 +1,20 @@
 <main class="site__main center-flex">
-    <div class="messenger__box">
+    <div class="messenger__box rounded-all">
         <h3>Welcome to Chatterbox</h3>
         <div class="messages__box ">
             <ul id="messages"></ul>
         </div>
         <form id="form" class="form">
-            <textarea 
-                class="form__input"
+            <input 
+                class="form__input rounded-left"
                 id="message"
                 type="text"
                 name="msg"
                 placeholder="start messaging..."
                 required
-                cols="10"
-                rows="50"
                 wrap="hard">
-            </textarea>
-            <button type="submit" class="form__button">
+            </input>
+            <button type="submit" class="form__button rounded-right">
                 <i class="fa fa-paper-plane" aria-hidden="true"></i>
             </button>
         </form>
