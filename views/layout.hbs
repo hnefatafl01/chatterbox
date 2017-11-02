@@ -12,6 +12,12 @@
       document.addEventListener('DOMContentLoaded', function() {
         const socket = io();
         const form = document.querySelector('form');  
+        const c1 = 'c1';
+        socket.on('connect', () => {
+          socket.emit('c1', c1)
+        })
+
+
         form.addEventListener('submit', (e) => {
             e.preventDefault(); 
             let message = form.msg.value;  

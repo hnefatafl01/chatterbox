@@ -5,16 +5,22 @@ const io = require('socket.io')(server);
 const logger = require('morgan');
 
 app.set('view engine', 'hbs');
-// app.use(logger('combined'));
+app.use(logger('short'));
 app.use(express.static(__dirname + '/public'));
 
 app.get('/', (req, res) => {
-    res.render('index', {title:'sup handlebars'});
+    res.render('index', {title:'sup chatterbox'});
 });
 
-io.on('connection', (socket) => {
+const chat = io.of('/chat');
+
+chat.on('connection', (socket) => {
+    socket.join('c1', () => {
+        chat.to('c1', 'someone joined the chatroom')
+    });
+
     socket.on('chat message', (message) => {
-        io.emit('chat message', message);
+        chat.to('c1').emit('chat message', message);
     });
 });
 

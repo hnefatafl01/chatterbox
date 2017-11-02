@@ -6,9 +6,10 @@
     "start": "npm run gulp && concurrently \"npm run gulp-watch\" \"npm run serve\"",
     "gulp": "gulp",
     "gulp-watch": "gulp watch",
-    "serve": "node ./index.js"
+    "serve": "DEBUG=socket.io* node ./index.js"
   },
   "dependencies": {
+    "chalk": "^2.3.0",
     "express": "^4.15.4",
     "hbs": "^4.0.1",
     "morgan": "^1.8.2",
